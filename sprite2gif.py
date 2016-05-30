@@ -81,14 +81,16 @@ class Sprite(object):
         new_sprite = cls(png_fn,
                          frame_count=sprite1.source_frame_count,
                          frame_width=sprite1.sprite_width,
-                         order=sprite1.def_order)
+                         order=sprite1.def_order,
+                         frame_duration=sprite1.def_dur)
         return new_sprite
 
     def copy(self, png_fn):
         return self.__class__(png_fn,
                               frame_count=self.source_frame_count,
                               frame_width=self.sprite_width,
-                              order=self.def_order)
+                              order=self.def_order,
+                              frame_duration=self.def_dur)
 
     def regif(self, png_fn=None, png_fp=None):
         new_fp = png_fp or str(self.source_fn).rpartition('/')[0] + '/' + png_fn
